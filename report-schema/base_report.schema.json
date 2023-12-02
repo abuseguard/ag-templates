@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$defs": {
+        "ReporterInfo": {
+            "type": "object",
+            "properties": {
+                "ReporterType": {
+                    "$comment": "Contact info is optional if the reporter is a natural person",
+                    "enum": ["Org", "Person"]
+                },
+                "ReporterName": {
+                    "type": "string"
+                },
+                "ReporterEmail": {
+                    "type": "string"
+                },
+                "ReporterPhone": {
+                    "type": "string"
+                },
+                "ReporterTitle": {
+                    "type": "string"
+                },
+                "ReporterOrg": {
+                    "type": "string"
+                }
+            },
+            "if": {
+                "not": { "properties": { "ReporterType": { "const": "Person" } } }
+            },
+            "then": {
+                "required": ["ReporterOrg"]
+            },
+            "required": ["ReporterName","ReporterEmail","ReporterType"]
+        }
+    },
+    "properties": {
+        "Base": {
+            "type":"object",
+            "allOf": [
+                {
+                    "$ref":"#/$defs/ReporterInfo"
+                }
+            ]
+        }
+    }
+}
