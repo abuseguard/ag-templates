@@ -25,6 +25,11 @@
                 },
                 "ReporterOrg": {
                     "type": "string"
+                },
+                "Disclose": {
+                    "type": "boolean",
+                    "description": "If true, the reporter allows the recipient to disclose the reporter's identity to the reported party",
+                    "default": false
                 }
             },
             "if": {
@@ -52,6 +57,90 @@
                     }
                 }
             ]
+        },
+        "InternalSchema": {
+            "type":"object",
+            "properties": {
+                "UserInformation": {
+                    "properties": {
+                        "Id": {
+                            "type": "string",
+                            "description": "Internal ID of the reportee."
+                        },
+                        "UserData": {
+                            "type": "object",
+                            "description": "Data about a customer normally returned by a resolver in the process of determining the reportee.",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                        }
+                    }
+                },
+                "AccountInformation": {
+                    "properties": {
+                        "Id": {
+                            "type": "string",
+                            "description": "Internal ID of the account."
+                        },
+                        "AccountData": {
+                            "type": "object",
+                            "description": "Data about a customer account normally returned by a resolver in the process of determining the reportee.",
+                            "additionalProperties": {
+                              "type": "string"
+                            }
+                        }
+                    }
+                },
+                "Priority": {
+                    "type": "string",
+                    "description": "Priority of the report",
+                    "enum": ["low", "medium", "high"]
+                },
+                "ReportedAt": {
+                    "type": "string",
+                    "format": "date-time",
+                    "description": "Timestamp of the report"
+                },
+                "EventTags": {
+                    "type": "array",
+                    "description": "Custom tags for classification, metrics and other internal uses.",
+                    "items": {
+                      "type": "string"
+                    }
+                }
+
+            }
+        },
+        "EventBase": {
+            "type":"object",
+            "allOf": [
+                {
+                    "type":"object",
+                    "properties": {
+                        "ReportClass": {
+                          "type": "string",
+                          "description": "class of the reported abuse event",
+                          "enum": ["Content", "Activity", "Vulnerability"]
+                        },
+                        "ReportType": {
+                          "type": "string",
+                          "description": "type of the reported abuse event",
+                          "minLength": 1
+                        },
+                        "ReporterSeverity": {
+                          "type": "string",
+                          "description": "class of the reported abuse event",
+                          "enum": ["low", "medium", "high"]
+                        },
+                        "ReporterNotes": {
+                            "type": "string",
+                            "description": "free text - notes by the reporter"
+                        }
+                      },
+                      "required": ["ReportClass", "ReportType"] 
+                }
+            ]
+        
         }
     }
 }
