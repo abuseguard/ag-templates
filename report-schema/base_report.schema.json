@@ -8,14 +8,16 @@
             "maximum": 65535
         },
         "Ip": {
-            "title": "IP information, either ipv4 or ipv6",
+            "title": "IP information",
             "oneOf": [
               {
                 "type": "string",
+                "title": "ipv4 address",
                 "format": "ipv4"
               },
               {
                 "type": "string",
+                "title": "ipv6 address",
                 "format": "ipv6"
               }
             ]
