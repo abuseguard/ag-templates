@@ -4,7 +4,7 @@
     "type": "object",
     "allOf": [
         {
-            "$ref": "base_report.schema.json#/definitions/Person"
+            "$ref": "base_report.schema.json#/properties/Base"
         }
     ]
 }
