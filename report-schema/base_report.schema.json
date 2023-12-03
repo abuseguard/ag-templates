@@ -239,6 +239,7 @@
                         {
                             "type":"object",
                             "required": ["sourceUrl"],
+                            "title": "URL Details",
                             "properties": {
                                 "sourceUrl": {
                                     "type": "string",
@@ -250,6 +251,7 @@
                         {
                             "type":"object",
                             "required": ["sourceIp"],
+                            "title": "IP Details",
                             "properties": {
                                 "sourceIp": {
                                     "$ref":"#/$defs/Ip"
