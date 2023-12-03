@@ -8,16 +8,10 @@
             "properties": {
                 "ReporterType": {
                     "$comment": "Contact info is optional if the reporter is a natural person",
-                    "enum": ["Org", "Person"],
-                    "default": "Person"
+                    "enum": ["Organization", "Individual"],
+                    "default": "Individual"
                 },
                 "ReporterName": {
-                    "type": "string"
-                },
-                "ReporterEmail": {
-                    "type": "string"
-                },
-                "ReporterPhone": {
                     "type": "string"
                 },
                 "ReporterTitle": {
@@ -25,7 +19,14 @@
                 },
                 "ReporterOrg": {
                     "type": "string"
+                },                
+                "ReporterEmail": {
+                    "type": "string"
                 },
+                "ReporterPhone": {
+                    "type": "string"
+                },
+
                 "Disclose": {
                     "type": "boolean",
                     "description": "If true, the reporter allows the recipient to disclose the reporter's identity to the reported party",
@@ -33,7 +34,7 @@
                 }
             },
             "if": {
-                "not": { "properties": { "ReporterType": { "const": "Person" } } }
+                "not": { "properties": { "ReporterType": { "const": "Individual" } } }
             },
             "then": {
                 "required": ["ReporterOrg"]
@@ -63,7 +64,7 @@
             "properties": {
                 "UserInformation": {
                     "properties": {
-                        "Id": {
+                        "UserId": {
                             "type": "string",
                             "description": "Internal ID of the reportee."
                         },
@@ -78,7 +79,7 @@
                 },
                 "AccountInformation": {
                     "properties": {
-                        "Id": {
+                        "AccountId": {
                             "type": "string",
                             "description": "Internal ID of the account."
                         },
