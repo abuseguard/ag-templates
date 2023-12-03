@@ -22,6 +22,13 @@
               }
             ]
         },
+        "Country": {
+            "type": "string",
+            "title": "Country Code",
+            "description": "ISO 3166-1 alpha-2 country code",
+            "pattern": "^[A-Z]{2}$"
+        },
+        
         "Date": {
             "description": "stores either a single date or two dates, one for the first occurrence of the event, one for the most recent",
             "type": "object",
@@ -62,13 +69,9 @@
                 },
                 "ReporterPhone": {
                     "type": "string"
-                },
-
-                "Disclose": {
-                    "type": "boolean",
-                    "description": "If true, the reporter allows the recipient to disclose the reporter's identity to the reported party",
-                    "default": false
                 }
+
+
             },
             "if": {
                 "not": { "properties": { "ReporterType": { "const": "Individual" } } }
@@ -173,11 +176,16 @@
                         "ReporterNotes": {
                             "type": "string",
                             "description": "free text - notes by the reporter"
-                        }         
+                        },
+                        "Disclose": {
+                            "type": "boolean",
+                            "description": "If true, the reporter allows the recipient to disclose the reporter's identity to the reported party",
+                            "default": false
+                        }        
 
                         
                       },
-                      "required": ["ReportClass", "ReportType"] 
+                      "required": ["ReportClass", "ReportType","Disclose"] 
                 },
                 {
                     "$ref": "#/$defs/Date"
