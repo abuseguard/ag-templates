@@ -12,12 +12,12 @@
             "oneOf": [
               {
                 "type": "string",
-                "title": "ipv4 address",
+                "title": "IPv4",
                 "format": "ipv4"
               },
               {
                 "type": "string",
-                "title": "ipv6 address",
+                "title": "IPv6",
                 "format": "ipv6"
               }
             ]
