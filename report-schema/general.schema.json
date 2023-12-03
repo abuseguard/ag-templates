@@ -5,6 +5,31 @@
     "allOf": [
         {
             "$ref": "base_report.schema.json#/properties/Base"
+        },
+        {
+            "type":"object",
+            "properties": {
+                "report": {
+                    "allOf": [
+                        {
+                            "$ref": "base_report.schema.json#/properties/IpAndUrlBasedReport"
+                        },
+                        {
+                            "type": "object",
+                            "properties": {
+                                "ReportClass": {
+                                    "type": "string",
+                                    "default": "General"
+                                },
+                                "ReportType": {
+                                    "type": "string",
+                                    "default": "General"
+                                }
+                            }
+                        }
+                    ]
+                }
+            }
         }
     ]
 }
