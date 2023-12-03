@@ -19,10 +19,14 @@
                             "properties": {
                                 "ReportClass": {
                                     "type": "string",
+                                    "enum": [
+                                        "General"
+                                    ],
                                     "default": "General"
                                 },
                                 "ReportType": {
                                     "type": "string",
+                                    "const": "General",
                                     "default": "General"
                                 }
                             }
