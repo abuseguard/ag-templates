@@ -91,9 +91,6 @@
                     "properties": {
                         "ReporterInfo": {
                             "$ref":"#/$defs/ReporterInfo"
-                        },
-                        "OnBehalfOf": {
-                            "$ref":"#/$defs/ReporterInfo"
                         }
                     }
                 }
