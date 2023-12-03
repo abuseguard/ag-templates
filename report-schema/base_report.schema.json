@@ -235,6 +235,7 @@
                     "$ref": "#/properties/ReportBase"
                 },
                 {
+                    "title": "IP and URL Details",
                     "anyOf": [
                         {
                             "type":"object",
