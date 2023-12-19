@@ -93,6 +93,29 @@
                             "$ref":"#/$defs/ReporterInfo"
                         }
                     }
+                },
+                {
+                    "type":"object",
+                    "properties": {
+                        "ReporterSeverity": {
+                          "description": "class of the reported abuse event",
+                          "enum": ["low", "medium", "high"]
+                        },
+                        "ReporterNotes": {
+                            "type": "string",
+                            "description": "free text - notes by the reporter"
+                        },
+                        "Disclose": {
+                            "type": "boolean",
+                            "description": "If true, the reporter allows the recipient to disclose the reporter's identity to the reported party",
+                            "default": false
+                        }        
+
+                        
+                      }
+                },
+                {
+                    "$ref": "#/$defs/Date"
                 }
             ]
         },
@@ -130,7 +153,6 @@
                     }
                 },
                 "Priority": {
-                    "type": "string",
                     "description": "Priority of the report",
                     "enum": ["low", "medium", "high"]
                 },
@@ -149,52 +171,9 @@
 
             }
         },
-        "ReportBase": {
-            "type":"object",
-            "allOf": [
-                {
-                    "type":"object",
-                    "properties": {
-                        "ReportClass": {
-                          "type": "string",
-                          "description": "class of the reported abuse event",
-                          "enum": ["Content", "Activity", "Vulnerability","General"]
-                        },
-                        "ReportType": {
-                          "type": "string",
-                          "description": "type of the reported abuse event",
-                          "minLength": 1
-                        },
-                        "ReporterSeverity": {
-                          "type": "string",
-                          "description": "class of the reported abuse event",
-                          "enum": ["low", "medium", "high"]
-                        },
-                        "ReporterNotes": {
-                            "type": "string",
-                            "description": "free text - notes by the reporter"
-                        },
-                        "Disclose": {
-                            "type": "boolean",
-                            "description": "If true, the reporter allows the recipient to disclose the reporter's identity to the reported party",
-                            "default": false
-                        }        
 
-                        
-                      },
-                      "required": ["ReportClass", "ReportType","Disclose"] 
-                },
-                {
-                    "$ref": "#/$defs/Date"
-                }
-            ]
-        
-        },
         "IpBasedReport": {
             "allOf": [
-                {
-                    "$ref": "#/properties/ReportBase"
-                },
                 {
                     "type":"object",
                     "required": ["sourceIp"],
@@ -221,9 +200,6 @@
         "UrlBasedReport": {
             "allOf": [
                 {
-                    "$ref": "#/properties/ReportBase"
-                },
-                {
                     "type":"object",
                     "required": ["sourceUrl"],
                     "properties": {
@@ -238,9 +214,6 @@
         },
         "IpAndUrlBasedReport": {
             "allOf": [
-                {
-                    "$ref": "#/properties/ReportBase"
-                },
                 {
                     "title": "IP and URL Details",
                     "anyOf": [
@@ -283,9 +256,6 @@
         },
         "AccountBasedReport": {
             "allOf": [
-                {
-                    "$ref": "#/properties/ReportBase"
-                },
                 {
                     "type": "object",
                     "required": ["Account"],

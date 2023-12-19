@@ -9,27 +9,10 @@
         {
             "type":"object",
             "properties": {
-                "report": {
+                "Report": {
                     "allOf": [
                         {
                             "$ref": "base_report.schema.json#/properties/IpAndUrlBasedReport"
-                        },
-                        {
-                            "type": "object",
-                            "properties": {
-                                "ReportClass": {
-                                    "type": "string",
-                                    "enum": [
-                                        "General"
-                                    ],
-                                    "default": "General"
-                                },
-                                "ReportType": {
-                                    "type": "string",
-                                    "const": "General",
-                                    "default": "General"
-                                }
-                            }
                         }
                     ]
                 }
