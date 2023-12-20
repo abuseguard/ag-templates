@@ -1,22 +1,14 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
     "$id": "https://raw.githubusercontent.com/abuseguard/ag-templates/main/report-schema/general.schema.json",
-    "type": "object",
-    "allOf": [
-        {
-            "$ref": "base_report.schema.json#/properties/Base"
-        },
-        {
-            "type":"object",
-            "properties": {
-                "Report": {
-                    "allOf": [
-                        {
-                            "$ref": "base_report.schema.json#/properties/IpAndUrlBasedReport"
-                        }
-                    ]
+    "type":"object",
+    "properties": {
+        "Report": {
+            "allOf": [
+                {
+                    "$ref": "base_report.schema.json#/properties/IpAndUrlBasedReport"
                 }
-            }
+            ]
         }
-    ]
+    }
 }
