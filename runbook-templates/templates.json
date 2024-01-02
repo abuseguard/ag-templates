@@ -1,0 +1,27 @@
+{
+    "$id": "https://raw.githubusercontent.com/abuseguard/ag-templates/main/runbook-templates/templates.json",
+    "templates": [
+        {
+            "title": "Generic Template",
+            "description": "Start with a file with the minimum necessary structure.",
+            "by": "AbuseGuard",
+            "icon": "",
+            "iconSvg": "",
+            "tags": ["generic","notificaiton","test"],
+            "data": {
+                "$ref": "generic.json"
+            }
+        },
+        {
+            "title": "Test Template",
+            "description": "Start with a file with the minimum necessary structure.",
+            "by": "AbuseGuard",
+            "icon": "",
+            "iconSvg": "",
+            "tags": ["test","aaa","bbb"],
+            "data": {
+                "$ref": "test.json"
+            }
+        }
+    ]
+}
