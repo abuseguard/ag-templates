@@ -9,7 +9,7 @@
             "iconSvg": "",
             "tags": ["generic","notificaiton","test"],
             "data": {
-                "$ref": "generic.json"
+                "$ref": "https://raw.githubusercontent.com/abuseguard/ag-templates/main/runbook-templates/generic.json"
             }
         },
         {
@@ -20,7 +20,7 @@
             "iconSvg": "",
             "tags": ["test","aaa","bbb"],
             "data": {
-                "$ref": "test.json"
+                "$ref": "https://raw.githubusercontent.com/abuseguard/ag-templates/main/runbook-templates/test.json"
             }
         }
     ]
